@@ -454,69 +454,60 @@
           <div id="results-carousel" class="carousel results-carousel">
             <div class="box m-5">
               <div class="content has-text-centered">
-                <img src="static/images/task_examples.png" alt="GRAB examples" width="80%"/>
+                <img src="static/images/task_examples.png" alt="GRAB examples" width="100%"/>
                 <p>Examples of each GRAB task: <b>Properties</b>, <b>Functions</b>, <b>Series</b>, and <b>Transforms</b>.</p>
               </div>
             </div>
             <div class="box m-5">
               <div class="content has-text-centered">
-                <img src="static/images/GRAB_overview.png" alt="GRAB overview" width="50%"/>
+                <img src="static/images/GRAB_overview.png" alt="GRAB overview" width="40%"/>
                 <p>Overview statistics.</p>
               </div>
             </div>
             <div class="box m-5">
               <div class="content has-text-centered">
-                <img src="static/images/GRAB_properties.png" alt="GRAB properties" width="50%"/>
+                <img src="static/images/GRAB_properties.png" alt="GRAB properties" width="35%"/>
                 <p>GRAB properties and categories.</p>
               </div>
             </div>
             <div class="box m-5">
               <div class="content has-text-centered">
-                <img src="static/images/precision_distribution_bar.png" alt="Precision distribution" width="50%"/>
+                <img src="static/images/precision_distribution_bar.png" alt="Precision distribution" width="35%"/>
                 <p>Distribution of required precision.</p>
               </div>
             </div>
           </div>
-
+        </section>
 
 <section class="hero is-light is-small">
   <div class="hero-body has-text-centered">
-  <h1 class="title is-1 grab">
-    Experimental Results
-  </h1>
+    <h1 class="title is-1 grab">
+      Experimental Results
+    </h1>
   </div>
 </section>
-            
+                      
 <section class="section">
   <div class="container">
     <div class="columns is-centered has-text-centered">
       <!-- <div class="column is-full-width has-text-centered"> -->
         <div class="column is-four-fifths">
         <div class="content has-text-justified">
-          <p>
-            GRAB consists of <b>2170 questions</b> centered around high-quality synthetic graphs. There are four key tasks in GRAB, which include questions covering 23 different graphs properties.
-            <ul>
-              <li><b>Properties</b> focuses on the analysis of features of individual functions and series</li>
-              <li><b>Functions</b> requires computing the mean of properties across multiple functions</li>
-              <li><b>Series</b> requires computing the mean of properties across multiple series</li>
-              <li><b>Transforms</b> involves determining the properties of a function after it has undergone a series of transforms</li>
-            </ul> 
-            </p>
-          <div id="results-carousel" class="carousel results-carousel">
-            <div class="box m-5">
-              <div class="content has-text-centered">
-                <img src="static/images/evaluator_scores_bar.png" alt="evaluator" width="80%"/>
-                Minor changes to evaluated accuracy are observed when an LLMs is used to parse the exact answer from the LMM output, suggesting the evaluated LMMs are good instruction followers.
-              </div>
-            </div>
-            <div class="box m-5">
-              <div class="content has-text-centered">
-                <img src="static/images/complexity_scores.png" alt="complexity" width="50%"/>
-                <p>For the better performing models, such as Claude 3.5 Sonnet and Gemini 1.5 Pro, performance does clearly decrease as complexity increases from 0 to 3. For the weaker
-                  models, however, the results fluctuate around 10% across the entire complexity domain. In these cases, even the lowest complexity questions are too challenging.</p>
-              </div>
-            </div>
-          </div>
+<div id="results-carousel" class="carousel results-carousel">
+  <div class="box m-5">
+    <div class="content has-text-centered">
+      <img src="static/images/evaluator_scores_bar.png" alt="evaluator" width="100%"/>
+      <p>Minor changes to evaluated accuracy are observed when an LLMs is used to parse the exact answer from the LMM output, suggesting the evaluated LMMs are good instruction followers.</p>
+    </div>
+  </div>
+  <div class="box m-5">
+    <div class="content has-text-centered">
+      <img src="static/images/complexity_scores.png" alt="complexity" width="100%"/>
+      <p>For the better performing models, performance does clearly decrease as complexity increases from 0 to 3. For the weaker models, however, the results fluctuate around 10% across the entire complexity domain. In these cases, even the lowest complexity questions are too challenging.</p>
+    </div>
+  </div>
+</div>
+</section>
 
 <!-- bibtex -->
 <section class="section" id="BibTeX">
