@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Evaluating graph analysis capabilities of large multimodal models">
+  <meta name="keywords" content="GRAB, GRaph Analysis Benchmark">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> GRAB Benchmark </title>
+
+  <link rel="icon" href="./static/images/grab-logo.png">
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/leaderboard.css">
+
+  <!-- <link href="https://unpkg.com/tabulator-tables@5.5.2/dist/css/tabulator_bulma.min.css" rel="stylesheet">
+  <script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.5.2/dist/js/tabulator.min.js"></script> -->
+  <script type="text/javascript" src="static/js/sort-table.js" defer></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/explorer-index.js"></script>
+  <script src="./static/js/question_card.js"></script>
+
+  <script src="./static/js/leaderboard_testmini.js"></script>  
+  <script src="./data/results/output_folders.js" defer></script>
+  <script src="./data/results/model_scores.js" defer></script>
+
+  <script src="./visualizer/data/data_public.js" defer></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <!-- <a class="navbar-item" href="https://keunhong.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a> -->
+      <!-- @PAN TODO: consider adding links? -->
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          Other Projects
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://satinbenchmark.github.io/">
+            <b>SATIN</b>
+          </a>
+          <a class="navbar-item" href="https://arxiv.org/abs/2306.00020">
+            <b>GPT4GEO</b>
+          </a>
+          <a class="navbar-item" href="https://arxiv.org/abs/2311.14656">
+            <b>Charting New Territories</b>
+          </a>
+          <a class="navbar-item" href="https://arxiv.org/abs/2405.08807">
+            <b>SciFIBench</b>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title is-bold">
+            <span class="grab" style="vertical-align: middle"><img src="static/images/grab-logo.png" style="width:1.0em;vertical-align: middle" alt="Logo"/>
+              <span class="grab">GRAB</span>
+            </h1>
+          <h2 class="subtitle is-4 publication-subtitle">
+            A Challenging <u>GR</u>aph <u>A</u>nalysis <u>B</u>enchmark for Large Multimodal Models
+          </h2>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://github.com/jonathan-roberts1">Jonathan Roberts</a><sup style="color:#1fef14">1</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.kaihan.org/">Kai Han</a><sup style="color:#ed4b82">2</sup>,</span>
+            <span class="author-block">
+              <a href="https://samuelalbanie.com/">Samuel Albanie</a><sup style=></sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup style="color:#1fef14">1</sup>University of Cambridge,</span>
+            <span class="author-block"><sup style="color:#ed4b82">2</sup>The University of Hong Kong</span>
+          </div>
+        
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- arXiv -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/jonathan-roberts1/GRAB"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/jonathan-roberts1/GRAB"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <!-- <i class="far fa-images"></i> -->
+                      <p style="font-size:18px">🤗</p>
+                      <!-- 🔗 -->
+                  </span>
+                  <span>Dataset</span>
+                </a>
+              </span>
+              <!-- Leaderboard Link. -->
+              <span class="link-block">
+                <a href="https://grab-benchmark.github.io/#leaderboard"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <p style="font-size:18px">🏆</p>
+                  </span>
+                  <span>Leaderboard</span>
+                </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="margin-top: -150px; margin-bottom: -100px;">
+    <div class="columns is-centered m-6">
+      <div class="column is-full has-text-centered content">
+
+          <div class="content has-text-centered">
+            <img src="static/images/overall_scores_bar.png" alt="geometric reasoning" width="40%"/>
+            <p> <b>Overall performance on GRAB.</b> Our benchmark proves challenging for frontier LMMs.<br>The highest performing model, Claude 3.5 Sonnet 🥇, attains an accuracy of just 21.7%.</p>
+
+        </div>
+      </div>
+    </div>
+</section>
+
+
+
+
+<section class="section">
+  <div class="container">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Overview</h2>
+        <div class="content has-text-justified">
+          <p>Large multimodal models (LMMs) have exhibited proficiences across many visual tasks. Although numerous benchmarks exist to evaluate model performance, 
+            they increasing have insufficient headroom and are <b>unfit to evaluate the next generation of frontier LMMs</b>.
+          </p>
+          <p>
+            To overcome this, we present <b>GRAB</b>, a challenging benchmark focused on the tasks <b>human analysts</b> might typically perform when interpreting figures. Such tasks include estimating the mean, 
+            intercepts or correlations of functions and data series and performing transforms. </p>
+          <p>
+            We evaluate a suite of <b>20 LMMs</b> on GRAB, finding it to be a challenging benchmark, with the current best model scoring just <b>21.7%</b>.
+          </p>
+        </div>
+      </div>
+</div>
+</section>
+
+<section class="section">
+  <div class="container">
+    
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3" id="leaderboard">Leaderboard</h2>
+        <div class="content">
+          <p class="mt-3"><b>Accuracy scores on GRAB</b> (2170 questions).</p>
+
+          <table class="js-sort-table" id="results">
+            <tr>
+                <td class="js-sort-number"><strong>Rank</strong></td>
+                <td class="js-sort-number"><strong>Model</strong></td>
+                <td class="js-sort-number"><strong>Source</strong></td>
+                <td class="js-sort-number"><strong><u>Overall</u></strong></td>
+                <td class="js-sort-number"><strong><i>Properties</i></strong></td>
+                <td class="js-sort-number"><strong><i>Functions</i></strong></td>
+                <td class="js-sort-number"><strong><i>Series</i></strong></td>
+                <td class="js-sort-number"><strong><i>Transforms</i></strong></td>
+
+            </tr>
+            <tr>
+              <td>1</td>
+              <td><b class="best-score-text">Claude 3.5 Sonnet 🥇</b></td>
+              <td><a href="" class="ext-link" style="font-size: 16px;">Link</a></td>
+              <td><b class="best-score-text">21.7</b></td>
+              <td>41.8</td>
+              <td>15.5</td>
+              <td>11.0</td>
+              <td>10.0</td>                                
+            </tr>
+            <tr>
+              <td>2</td>
+              <td><b class="best-score-text">Gemini 1.5 Pro 🥈</b></td>
+              <td><a href="" class="ext-link" style="font-size: 16px;">Link</a></td>
+              <td><b class="best-score-text">18.1</b></td>
+              <td>34.2</td>
+              <td>11.4</td>
+              <td>13.3</td>
+              <td>6.5</td>                                
+            </tr>
+            <tr>
+              <td>3</td>
+              <td><b class="best-score-text">Gemini 1.5 Flash 🥉</b></td>
+              <td><a href="" class="ext-link" style="font-size: 16px;">Link</a></td>
+              <td><b class="best-score-text">15.6</b></td>
+              <td>28.5</td>
+              <td>11.5</td>
+              <td>8.4</td>
+              <td>9.0</td>                                
+            </tr>
+            <tr>
+              <td>4</td>
+              <td><b>GPT-4o</b></td>
+              <td><a href="" class="ext-link" style="font-size: 16px;">Link</a></td>
+              <td><b>13.6</b></td>
+              <td>24.7</td>
+              <td>10.8</td>
+              <td>9.2</td>
+              <td>3.5</td>                                
+            </tr>                                                  
+        </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- DATASET SECTION -->
+<section class="hero is-light is-small">
+  <div class="hero-body has-text-centered">
+  <h1 class="title is-1 grab">
+    <img src="static/images/grab-logo.png" style="width:1em;vertical-align: middle" alt="Logo"/>
+    <span class="grab" style="vertical-align: middle">GRAB Dataset</span>
+  </h1>
+  </div>
+</section>
+            
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <!-- <div class="column is-full-width has-text-centered"> -->
+        <div class="column is-four-fifths">
+        <h2 class="title is-3">Overview</h2>
+        <div class="content has-text-justified">
+          <p>
+            <img src="static/images/grab-logo.png" style="width:1.0em;vertical-align: middle" alt="Logo"/>
+            GRAB consists of <b>2170 questions</b> centered around high-quality synthetic graphs. There are four key tasks in GRAB, which include questions covering 23 different graphs properties.
+            </p>
+          <div id="results-carousel" class="carousel results-carousel">
+            <div class="box m-5">
+              <div class="content has-text-centered">
+                <img src="static/images/our_new_3_datasets.png" alt="algebraic reasoning" width="80%"/>
+                <p> Examples of our newly annotated datasets: IQTest, FunctionQA, and PaperQA.</p>
+              </div>
+            </div>
+            <div class="box m-5">
+              <div class="content has-text-centered">
+                <img src="static/images/source_dataset.png" alt="arithmetic reasoning" width="50%"/>
+                <p> Summary of the 31 different source datasets in <img src="static/images/mathvista.png" style="width:1.0em;vertical-align: middle" alt="Logo"/>
+                  <span class="grab">MathVista</span>.
+              </div>
+            </div>
+          </div>
+
+
+<!-- bibtex -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title is-3 has-text-centered">BibTeX</h2>
+    <pre><code>@article{roberts2024grab,
+      title        = {GRAB: A Challenging GRaph Analysis Benchmark for Large Multimodal Models},
+      author       = {Jonathan Roberts, Kai Han and Samuel Albanie},
+      year         = {2024},
+      journal      = {arXiv preprint arXiv:}
+    }</code></pre>
+  </div>
+</section>
+
+<section>
+  <div class="section" id="org-banners" style="display:flex">
+    <a href="https://www.cam.ac.uk/" target="_blank" rel="external">
+        <img class="center-block org-banner" src="static/images/cam_logo.svg">
+    </a>
+    <a href="https://www.hku.hk/" target="blank" class="ext-link">
+        <img class="center-block org-banner" src="static/images/hku_logo.png">
+    </a>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <!-- <div class="container"> -->
+    <div class="content has-text-centered">
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is adapted from <a href="https://nerfies.github.io/">Nerfies</a> and <a href="https://mathvista.github.io/">Math Vista</a>, licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  <!-- </div> -->
+</footer>
+
+</body>
+</html>
