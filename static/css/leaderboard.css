@@ -1,3 +1,4 @@
+/* Base table styling (overridden for leaderboard tables below) */
 table {
     border: 1px solid black;
     border-collapse: collapse;
@@ -17,26 +18,42 @@ thead {
     background: #ddd;
 }
 
+/* Highlight the actively sorted column for both tables */
 table#results.js-sort-0 tbody tr td:nth-child(1),
+table#results-lite.js-sort-0 tbody tr td:nth-child(1),
 table#results.js-sort-1 tbody tr td:nth-child(2),
+table#results-lite.js-sort-1 tbody tr td:nth-child(2),
 table#results.js-sort-2 tbody tr td:nth-child(3),
+table#results-lite.js-sort-2 tbody tr td:nth-child(3),
 table#results.js-sort-3 tbody tr td:nth-child(4),
+table#results-lite.js-sort-3 tbody tr td:nth-child(4),
 table#results.js-sort-4 tbody tr td:nth-child(5),
+table#results-lite.js-sort-4 tbody tr td:nth-child(5),
 table#results.js-sort-5 tbody tr td:nth-child(6),
+table#results-lite.js-sort-5 tbody tr td:nth-child(6),
 table#results.js-sort-6 tbody tr td:nth-child(7),
+table#results-lite.js-sort-6 tbody tr td:nth-child(7),
 table#results.js-sort-7 tbody tr td:nth-child(8),
+table#results-lite.js-sort-7 tbody tr td:nth-child(8),
 table#results.js-sort-8 tbody tr td:nth-child(9),
+table#results-lite.js-sort-8 tbody tr td:nth-child(9),
 table#results.js-sort-9 tbody tr td:nth-child(10),
+table#results-lite.js-sort-9 tbody tr td:nth-child(10),
 table#results.js-sort-10 tbody tr td:nth-child(11),
+table#results-lite.js-sort-10 tbody tr td:nth-child(11),
 table#results.js-sort-11 tbody tr td:nth-child(12),
+table#results-lite.js-sort-11 tbody tr td:nth-child(12),
 table#results.js-sort-12 tbody tr td:nth-child(13),
+table#results-lite.js-sort-12 tbody tr td:nth-child(13),
 table#results.js-sort-13 tbody tr td:nth-child(14),
-table#results.js-sort-14 tbody tr td:nth-child(15) {
+table#results-lite.js-sort-13 tbody tr td:nth-child(14),
+table#results.js-sort-14 tbody tr td:nth-child(15),
+table#results-lite.js-sort-14 tbody tr td:nth-child(15) {
     background: #dee;
 }
 
-/* Table for three sub-tasks */
-#results {
+/* Leaderboard tables (GRAB + GRAB-Lite) share identical formatting */
+#results, #results-lite {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     border-collapse: collapse;
@@ -45,10 +62,12 @@ table#results.js-sort-14 tbody tr td:nth-child(15) {
     margin: auto;
     margin-top: 1em;
     margin-bottom: 2em;
+    border: 1px solid #ddd; /* override global black border */
 }
 
-/*table tile*/
-#results th {
+/* Header cells (support both th and td within thead) */
+#results th, #results-lite th,
+#results thead tr td, #results-lite thead tr td {
     border: 1px solid #ddd;
     padding: 8px;
     padding-top: 12px;
@@ -56,20 +75,18 @@ table#results.js-sort-14 tbody tr td:nth-child(15) {
     font-size: 16px;
     text-align: center;
     font-weight: 600;
-    background-color: var(--UCLA-darkblue);
-    color: white;
 }
 
-#results td {
+#results td, #results-lite td {
     border: 1px solid #ddd;
     padding: 8px;
 }
 
-#results tr:nth-child(even) {
+#results tr:nth-child(even), #results-lite tr:nth-child(even) {
     background-color: #f5f5f5;
 }
 
-#results tr:hover {
+#results tr:hover, #results-lite tr:hover {
     background-color: #ddd;
 }
 
