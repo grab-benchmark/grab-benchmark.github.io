@@ -1,4 +1,4 @@
-# MathVista
+# GRAB
 
 This website is adapted from [Nerfies](https://nerfies.github.io) and [MathVisa](https://mathvista.github.io) websites.
 
