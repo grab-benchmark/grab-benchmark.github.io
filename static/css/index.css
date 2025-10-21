@@ -111,8 +111,35 @@ body {
 .publication-body img {
 }
 
+/* Force carousel wrapper to show items properly */
 .results-carousel {
-  overflow: hidden;
+  height: 50vh; /* Set height on carousel container */
+}
+
+.results-carousel .box {
+  height: 100%; /* Fill the carousel height */
+  display: flex;
+  flex-direction: column;
+}
+
+.results-carousel .content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: auto; /* Allow scrolling if content is too tall */
+}
+
+/* Ensure carousel items display properly */
+.results-carousel .carousel-item {
+  display: block !important;
+}
+
+/* Prevent images from overflowing */
+.results-carousel img {
+  max-height: 50vh;
+  width: auto;
+  object-fit: contain;
 }
 
 /* .results-carousel .item {
@@ -123,6 +150,34 @@ body {
   padding: 5px;
   font-size: 0;
 } */
+
+/* Light blue active state for the dataset tabs */
+.grab-tabs.tabs.is-toggle li.is-active a {
+  background-color: #e8f2ff;   /* very light blue */
+  border-color:     #a8ceff;   /* light blue border */
+  color:            #1f4fa3;   /* readable blue text */
+  box-shadow: none;
+  transition: background-color .15s ease, color .15s ease, border-color .15s ease;
+}
+
+/* Hover/focus states for better affordance & a11y */
+.grab-tabs.tabs.is-toggle li.is-active a:hover,
+.grab-tabs.tabs.is-toggle li.is-active a:focus {
+  background-color: #ddecff;   /* slightly deeper on hover */
+  border-color:     #9bc5ff;
+  color:            #1a4695;
+  outline: none;
+}
+
+/* Keep inactive tabs neutral */
+.grab-tabs.tabs.is-toggle a {
+  color: #4a4a4a;
+}
+.grab-tabs.tabs.is-toggle a:hover,
+.grab-tabs.tabs.is-toggle a:focus {
+  border-color: #c8dfff;
+}
+
 
 .stats-image {
   max-height: 250px;
