@@ -18,12 +18,15 @@ thead {
     background: #ddd;
 }
 
-/* Highlight the actively sorted column for both tables */
+/* Highlight the actively sorted column for all three tables */
 table#results.js-sort-0 tbody tr td:nth-child(1),
+table#results-real.js-sort-0 tbody tr td:nth-child(1),
 table#results-lite.js-sort-0 tbody tr td:nth-child(1),
 table#results.js-sort-1 tbody tr td:nth-child(2),
+table#results-real.js-sort-1 tbody tr td:nth-child(2),
 table#results-lite.js-sort-1 tbody tr td:nth-child(2),
 table#results.js-sort-2 tbody tr td:nth-child(3),
+table#results-real.js-sort-2 tbody tr td:nth-child(3),
 table#results-lite.js-sort-2 tbody tr td:nth-child(3),
 table#results.js-sort-3 tbody tr td:nth-child(4),
 table#results-lite.js-sort-3 tbody tr td:nth-child(4),
@@ -52,8 +55,8 @@ table#results-lite.js-sort-14 tbody tr td:nth-child(15) {
     background: #dee;
 }
 
-/* Leaderboard tables (GRAB + GRAB-Lite) share identical formatting */
-#results, #results-lite {
+/* Leaderboard tables (GRAB + GRAB-real + GRAB-Lite) share identical formatting */
+#results, #results-real, #results-lite {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     border-collapse: collapse;
@@ -62,32 +65,47 @@ table#results-lite.js-sort-14 tbody tr td:nth-child(15) {
     margin: auto;
     margin-top: 1em;
     margin-bottom: 2em;
-    border: 1px solid #ddd; /* override global black border */
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    border-radius: 6px;
+    overflow: hidden;
 }
 
-/* Header cells (support both th and td within thead) */
-#results th, #results-lite th,
-#results thead tr td, #results-lite thead tr td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    padding-top: 12px;
-    padding-bottom: 12px;
+/* Header cells - use js-sort-number class to identify header row */
+#results th, #results-real th, #results-lite th,
+#results thead tr td, #results-real thead tr td, #results-lite thead tr td,
+#results td.js-sort-number, #results-real td.js-sort-number, #results-lite td.js-sort-number {
+    background-color: #e6e9ff !important;
+    color: #2d3748;
+    border: 1px solid #d0d4e0;
+    padding: 12px;
+    padding-top: 14px;
+    padding-bottom: 14px;
     font-size: 16px;
     text-align: center;
-    font-weight: 600;
+    font-weight: 700;
 }
 
-#results td, #results-lite td {
-    border: 1px solid #ddd;
-    padding: 8px;
+/* Data cells */
+#results td:not(.js-sort-number), #results-real td:not(.js-sort-number), #results-lite td:not(.js-sort-number) {
+    border: 1px solid #e8e8e8;
+    padding: 10px;
+    font-weight: normal;
 }
 
-#results tr:nth-child(even), #results-lite tr:nth-child(even) {
-    background-color: #f5f5f5;
+/* Data rows - odd (rank 1, 3, 5...) = white */
+#results tr:nth-child(even), #results-real tr:nth-child(even), #results-lite tr:nth-child(even) {
+    background-color: #ffffff;
 }
 
-#results tr:hover, #results-lite tr:hover {
-    background-color: #ddd;
+/* Data rows - even (rank 2, 4, 6...) = pale tint */
+#results tr:nth-child(odd):not(:first-child), #results-real tr:nth-child(odd):not(:first-child), #results-lite tr:nth-child(odd):not(:first-child) {
+    background-color: #fafbff;
+}
+
+#results tr:hover:not(:first-child), #results-real tr:hover:not(:first-child), #results-lite tr:hover:not(:first-child) {
+    background-color: #f5f6ff;
+    transition: background-color 0.2s ease;
 }
 
 .js-sort-number:hover {
@@ -101,6 +119,7 @@ table#results-lite.js-sort-14 tbody tr td:nth-child(15) {
 }
 
 .best-score-text {
-    color: #5f0157
+    color: #764ba2;
+    font-weight: 600;
     /* color: #3457D5 */
 }

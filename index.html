@@ -45,19 +45,16 @@
 
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
-          Other Projects
+          Other Evals
         </a>
         <div class="navbar-dropdown">
-          <a class="navbar-item" href="https://satinbenchmark.github.io/">
-            <b>SATIN</b>
+          <a class="navbar-item" href="https://zerobench.github.io/">
+            <b>ZeroBench</b>
           </a>
-          <a class="navbar-item" href="https://arxiv.org/abs/2306.00020">
-            <b>GPT4GEO</b>
+          <a class="navbar-item" href="https://needle-threading.github.io/">
+            <b>Needle Threading</b>
           </a>
-          <a class="navbar-item" href="https://arxiv.org/abs/2311.14656">
-            <b>Charting New Territories</b>
-          </a>
-          <a class="navbar-item" href="https://arxiv.org/abs/2405.08807">
+          <a class="navbar-item" href="https://scifibench.github.io/">
             <b>SciFIBench</b>
           </a>
         </div>
@@ -134,26 +131,48 @@
                   <span>Code</span>
                   </a>
               </span>
-              <!-- Dataset Link. -->
-              <span class="link-block">
-                <a href="https://huggingface.co/datasets/jonathan-roberts1/GRAB"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <!-- <i class="fa-regular fa-images"></i> -->
-                      <p style="font-size:18px">🤗</p>
-                      <!-- 🔗 -->
-                  </span>
-                  <span>Dataset</span>
-                </a>
-              </span>
-              <!-- Leaderboard Link. -->
+              <!-- Leaderboards Link. -->
               <span class="link-block">
                 <a href="https://grab-benchmark.github.io/#leaderboard"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <p style="font-size:18px">🏆</p>
                   </span>
-                  <span>Leaderboard</span>
+                  <span>Leaderboards</span>
+                </a>
+              </span>
+            </div>
+
+            <!-- Second row of buttons for datasets -->
+            <div class="publication-links" style="margin-top: 10px;">
+              <!-- GRAB Dataset Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/jonathan-roberts1/GRAB"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <p style="font-size:18px">🤗</p>
+                  </span>
+                  <span>GRAB Dataset</span>
+                </a>
+              </span>
+              <!-- GRAB-real Dataset Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/jonathan-roberts1/GRAB-real"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <p style="font-size:18px">🤗</p>
+                  </span>
+                  <span>GRAB-real Dataset</span>
+                </a>
+              </span>
+              <!-- GRAB-lite Dataset Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/jonathan-roberts1/GRAB-lite"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <p style="font-size:18px">🤗</p>
+                  </span>
+                  <span>GRAB-lite Dataset</span>
                 </a>
               </span>
             </div>
@@ -172,7 +191,7 @@
 
           <div class="content has-text-centered">
             <img src="static/images/overall_scores_bar.png" alt="overall scores" width="40%"/>
-            <p> <b>Overall performance on GRAB.</b> Our benchmark proves challenging for frontier LMMs.<br>The highest performing model, Claude 3.5 Sonnet 🥇, attains an accuracy of just 21.0%.</p>
+            <p> <b>Overall performance on GRAB at release.</b> Our benchmark proves challenging for frontier LMMs.<br>The highest performing model, Claude 3.5 Sonnet 🥇, attains an accuracy of just 21.7%.</p>
 
         </div>
       </div>
@@ -191,12 +210,13 @@
             they increasing have insufficient headroom and are <b>unfit to evaluate the next generation of frontier LMMs</b>.
           </p>
           <p>
-            To overcome this, we present <b>GRAB</b>, a challenging benchmark focused on the tasks <b>human analysts</b> might typically perform when interpreting figures. Such tasks include estimating the mean, 
-            intercepts or correlations of functions and data series and performing transforms. </p>
+            To overcome this, we present <b style="color:rgb(241, 140, 0)">GRAB</b>, a challenging 2170-question benchmark focused on the tasks <b>human analysts</b> might typically perform when interpreting figures. Such tasks include estimating the mean, 
+            intercepts or correlations of functions and data series and performing transforms. We evaluate an initial suite of <b>20 LMMs</b> on GRAB via exact matching, finding it to be a challenging benchmark, with the current best model scoring just <b>21.7%</b>.</p>
           <p>
-            We evaluate a suite of <b>20 LMMs</b> on GRAB via exact matching, finding it to be a challenging benchmark, with the current best model scoring just <b>21.0%</b>.</p> 
+            To compliment the main GRAB benchmark, which is constructed from synthetic figures, we also introduce <b style="color:rgb(241, 140, 0)">GRAB-real</b>, a 1114-question set of more realistic figures organised into 4 tasks: paper sketches, whiteboard sketches, figures embedded in computer environments and figures with added noise. 
+          </p> 
           <p>
-            Focused on the recent development of reasoning models, we also introduce GRAB-Lite, a light-weight task-balanced 500-question subset of GRAB, and evaluate leading frontier LMMs on it.
+            Focused on the recent development of reasoning models, we also introduce <b style="color:rgb(241, 140, 0)">GRAB-lite</b>, a light-weight task-balanced 500-question subset of GRAB and GRAB-real, and evaluate leading frontier LMMs on it.
           </p>
         </div>
       </div>
@@ -212,30 +232,59 @@
   </div>
 </section>
 
-<!-- LEADERBOARD: Tabs + Content -->
+<section class="section">
+  <div class="container">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified">
+          Select to view the leaderboards for GRAB, GRAB-real, and GRAB-lite below. The tables are sortable by clicking on the column headers. Initial evaluations at release (for non-thinking models) were carried out to maximize determinism, using temperature 0, and setting seeds and top k to 0 where possible. For more recent thinking models, evals were carried out with default settings. More model results will be added over time.
+        </div>
+</div>
+</section>
+
+<!-- LEADERBOARD: Carousel style -->
 <section class="section" id="leaderboard">
   <div class="container">
-    <div class="has-text-centered mb-3">
-      <!-- Large Bulma toggle tabs with logos -->
-      <div class="tabs is-toggle is-toggle-rounded is-centered is-large grab-tabs" id="lb-tabs" role="tablist" aria-label="Leaderboard dataset tabs" style="display:inline-block;">
-        <ul>
-          <li class="is-active" role="presentation">
-            <a href="#leaderboard" role="tab" aria-selected="true" aria-controls="tab-grab">
-              <span>
-                <strong>GRAB</strong>
-                <small class="has-text-grey" style="display:block; line-height:1;">3,284 Qs</small>
-              </span>
-            </a>
-          </li>
-          <li role="presentation">
-            <a href="#leaderboard-lite" role="tab" aria-selected="false" aria-controls="tab-lite">
-              <span>
-                <strong>GRAB-Lite</strong>
-                <small class="has-text-grey" style="display:block; line-height:1;">500 Qs</small>
-              </span>
-            </a>
-          </li>
-        </ul>
+    <div class="has-text-centered mb-4">
+      <!-- Navigation with arrows -->
+      <div style="display: flex; align-items: center; justify-content: center; gap: 20px;">
+        <button id="prev-leaderboard" class="button is-large is-rounded" style="font-size: 2rem; padding: 0 1.5rem;">
+          &#8249;
+        </button>
+        
+        <div class="tabs is-toggle is-toggle-rounded is-large grab-tabs" id="lb-tabs" role="tablist" style="margin-bottom: 0;">
+          <ul>
+            <li class="is-active" role="presentation">
+              <a href="#leaderboard" role="tab" aria-selected="true" aria-controls="tab-grab" style="min-width: 250px;">
+                <span>
+                  <strong>GRAB</strong>
+                  <small class="has-text-grey" style="display:block; line-height:1;">2,170 Qs</small>
+                </span>
+              </a>
+            </li>
+            <li role="presentation">
+              <a href="#leaderboard-real" role="tab" aria-selected="false" aria-controls="tab-real" style="min-width: 250px;">
+                <span>
+                  <strong>GRAB-real</strong>
+                  <small class="has-text-grey" style="display:block; line-height:1;">1,114 Qs</small>
+                </span>
+              </a>
+            </li>
+            <li role="presentation">
+              <a href="#leaderboard-lite" role="tab" aria-selected="false" aria-controls="tab-lite" style="min-width: 250px;">
+                <span>
+                  <strong>GRAB-lite</strong>
+                  <small class="has-text-grey" style="display:block; line-height:1;">500 Qs</small>
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <button id="next-leaderboard" class="button is-large is-rounded" style="font-size: 2rem; padding: 0 1.5rem;">
+          &#8250;
+        </button>
       </div>
     </div>
 
@@ -252,192 +301,246 @@
               <td class="js-sort-number"><strong><i>Functions</i></strong></td>
               <td class="js-sort-number"><strong><i>Series</i></strong></td>
               <td class="js-sort-number"><strong><i>Transforms</i></strong></td>
-              <td class="js-sort-number"><strong><i>Real</i></strong></td>
               <td class="js-sort-number"><strong><u>Overall</u></strong></td>
             </tr>
 
             <tr>
-              <td>1</td>
-              <td><b class="best-score-text">Claude 3.5 Sonnet 🥇</b></td>
+              <td></td>
+              <td>GPT-5.2</td>
+              <td>75.6</td>
+              <td>64.5</td>
+              <td>48.4</td>
+              <td>70.6</td>
+              <td>65.1</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>GPT-5.1</td>
+              <td>66.8</td>
+              <td>38.0</td>
+              <td>32.7</td>
+              <td>53.9</td>
+              <td>47.8</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>GPT-5-nano</td>
+              <td>48.3</td>
+              <td>26.2</td>
+              <td>25.1</td>
+              <td>30.3</td>
+              <td>33.3</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>GPT-5-mini</td>
+              <td>65.0</td>
+              <td>38.7</td>
+              <td>36.1</td>
+              <td>54.5</td>
+              <td>48.4</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>GPT-5</td>
+              <td>66.8</td>
+              <td>41.1</td>
+              <td>35.5</td>
+              <td>57.4</td>
+              <td>50.0</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>Gemini 3 Pro</td>
+              <td>69.8</td>
+              <td>54.9</td>
+              <td>46.7</td>
+              <td>58.7</td>
+              <td>58.2</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>Gemini 3 Flash</td>
+              <td>76.4</td>
+              <td>58.7</td>
+              <td>48.4</td>
+              <td>68.4</td>
+              <td>63.1</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>Claude 4.5 Sonnet</td>
+              <td>56.5</td>
+              <td>34.1</td>
+              <td>36.7</td>
+              <td>41.6</td>
+              <td>42.6</td>
+            </tr>
+
+            <tr>
+              <td></td>
+              <td>Claude 3.5 Sonnet</td>
               <td>41.8</td>
               <td>15.5</td>
               <td>11.0</td>
               <td>10.0</td>
-              <td>19.6</td>
-              <td><b class="best-score-text">21.0</b></td>
+              <td>21.7</td>
             </tr>
             <tr>
-              <td>2</td>
-              <td><b class="best-score-text">Gemini 1.5 Pro 🥈</b></td>
+              <td></td>
+              <td>Gemini 1.5 Pro</td>
               <td>34.2</td>
               <td>11.4</td>
               <td>13.3</td>
               <td>6.5</td>
-              <td>20.3</td>
-              <td><b class="best-score-text">18.8</b></td>
+              <td>18.1</td>
             </tr>
             <tr>
-              <td>3</td>
-              <td><b class="best-score-text">Gemini 1.5 Flash 🥉</b></td>
+              <td></td>
+              <td>Gemini 1.5 Flash</td>
               <td>28.5</td>
               <td>11.5</td>
               <td>8.4</td>
               <td>9.0</td>
-              <td>17.1</td>
-              <td><b class="best-score-text">16.1</b></td>
+              <td>15.6</td>
             </tr>
             <tr>
-              <td>4</td>
+              <td></td>
               <td><b>GPT-4o</b></td>
               <td>24.7</td>
               <td>10.8</td>
               <td>9.2</td>
               <td>3.5</td>
-              <td>17.3</td>
-              <td><b>14.9</b></td>
+              <td><b>13.6</b></td>
             </tr>
             <tr>
-              <td>5</td>
+              <td></td>
               <td><b>Claude 3 Sonnet</b></td>
               <td>15.3</td>
               <td>8.6</td>
               <td>4.5</td>
               <td>4.8</td>
-              <td>12.4</td>
-              <td><b>10.3</b></td>
+              <td><b>9.2</b></td>
             </tr>
             <tr>
-              <td>6</td>
+              <td></td>
               <td><b>Reka Flash</b></td>
               <td>13.2</td>
               <td>10.1</td>
               <td>6.3</td>
               <td>3.9</td>
-              <td>10.0</td>
-              <td><b>9.5</b></td>
+              <td><b>9.3</b></td>
             </tr>
             <tr>
-              <td>7</td>
+              <td></td>
               <td><b>GPT-4 Turbo</b></td>
               <td>18.5</td>
               <td>8.5</td>
               <td>4.9</td>
               <td>3.5</td>
-              <td>7.5</td>
-              <td><b>9.2</b></td>
+              <td><b>10.0</b></td>
             </tr>
             <tr>
-              <td>8</td>
+              <td></td>
               <td><b>Claude 3 Haiku</b></td>
               <td>14.2</td>
               <td>6.6</td>
               <td>8.8</td>
               <td>3.9</td>
-              <td>9.2</td>
-              <td><b>9.1</b></td>
+              <td><b>9.0</b></td>
             </tr>
             <tr>
-              <td>9</td>
+              <td></td>
               <td><b>TransCore-M</b></td>
               <td>7.9</td>
               <td>9.2</td>
               <td>7.6</td>
               <td>3.9</td>
-              <td>8.2</td>
-              <td><b>7.9</b></td>
+              <td><b>7.6</b></td>
             </tr>
             <tr>
-              <td>10</td>
+              <td></td>
               <td><b>Yi-VL-6b</b></td>
               <td>5.6</td>
               <td>8.6</td>
               <td>7.1</td>
               <td>4.2</td>
-              <td>9.7</td>
-              <td><b>7.7</b></td>
+              <td><b>6.7</b></td>
             </tr>
             <tr>
-              <td>11</td>
+              <td></td>
               <td><b>LLaVA-1.5 13b</b></td>
               <td>5.0</td>
               <td>7.7</td>
               <td>8.4</td>
               <td>3.9</td>
-              <td>8.9</td>
-              <td><b>7.3</b></td>
+              <td><b>6.5</b></td>
             </tr>
             <tr>
-              <td>12</td>
+              <td></td>
               <td><b>CogVLM-Chat</b></td>
               <td>7.0</td>
               <td>4.9</td>
               <td>5.1</td>
               <td>3.9</td>
-              <td>10.5</td>
-              <td><b>7.2</b></td>
+              <td><b>5.4</b></td>
             </tr>
             <tr>
-              <td>13</td>
+              <td></td>
               <td><b>GPT-4o mini</b></td>
               <td>15.8</td>
               <td>6.8</td>
               <td>5.7</td>
               <td>2.9</td>
-              <td>4.0</td>
-              <td><b>7.1</b></td>
+              <td><b>8.7</b></td>
             </tr>
             <tr>
-              <td>14</td>
+              <td></td>
               <td><b>LLaVA-1.5 7b</b></td>
               <td>4.7</td>
               <td>7.5</td>
               <td>6.5</td>
               <td>4.8</td>
-              <td>8.5</td>
-              <td><b>6.9</b></td>
+              <td><b>6.0</b></td>
             </tr>
             <tr>
-              <td>15</td>
+              <td></td>
               <td><b>Yi-VL-34b</b></td>
               <td>7.6</td>
               <td>5.9</td>
               <td>5.5</td>
               <td>2.3</td>
-              <td>7.5</td>
-              <td><b>6.4</b></td>
+              <td><b>5.8</b></td>
             </tr>
             <tr>
-              <td>16</td>
+              <td></td>
               <td><b>Qwen-VL-Chat</b></td>
               <td>10.2</td>
               <td>6.6</td>
               <td>5.1</td>
               <td>2.9</td>
-              <td>4.6</td>
-              <td><b>6.1</b></td>
+              <td><b>6.8</b></td>
             </tr>
             <tr>
-              <td>17</td>
+              <td></td>
               <td><b>OmniLMM-3b</b></td>
               <td>6.7</td>
               <td>4.9</td>
               <td>4.1</td>
               <td>4.5</td>
-              <td>6.2</td>
-              <td><b>5.5</b></td>
+              <td><b>5.2</b></td>
             </tr>
             <tr>
-              <td>18</td>
+              <td></td>
               <td><b>Reka Core</b></td>
               <td>1.7</td>
               <td>0.0</td>
               <td>4.3</td>
               <td>0.3</td>
-              <td>1.3</td>
               <td><b>1.5</b></td>
             </tr>
 
-            <!-- Models without Overall/Real (unranked) -->
+            <!-- Models without Overall (unranked) -->
             <tr>
               <td>—</td>
               <td><b>Gemini 1.0 Pro Vision</b></td>
@@ -445,8 +548,7 @@
               <td>5.8</td>
               <td>6.9</td>
               <td>6.1</td>
-              <td>—</td>
-              <td><b>—</b></td>
+              <td><b>10.5</b></td>
             </tr>
             <tr>
               <td>—</td>
@@ -455,8 +557,7 @@
               <td>8.7</td>
               <td>11.6</td>
               <td>1.9</td>
-              <td>—</td>
-              <td><b>—</b></td>
+              <td><b>9.4</b></td>
             </tr>
           </table>
 
@@ -465,7 +566,117 @@
           </p>
         </div>
 
-        <!-- TAB: GRAB-Lite (identical formatting) -->
+        <!-- TAB: GRAB-real -->
+        <div id="tab-real" class="is-hidden" role="tabpanel" aria-labelledby="leaderboard-real">
+          <table class="js-sort-table" id="results-real">
+            <tr>
+              <td class="js-sort-number"><strong>Rank</strong></td>
+              <td class="js-sort-number"><strong>Model</strong></td>
+              <td class="js-sort-number"><strong><u>Real</u></strong></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>Gemini 3 Flash</td>
+              <td>52.3</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>Gemini 1.5 Pro</td>
+              <td>20.3</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>Claude 3.5 Sonnet</td>
+              <td>19.6</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>GPT-4o</td>
+              <td>17.3</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><b>Gemini 1.5 Flash</b></td>
+              <td><b>17.1</b></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><b>Claude 3 Sonnet</b></td>
+              <td><b>12.4</b></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><b>Reka Flash</b></td>
+              <td><b>10.0</b></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><b>Yi-VL-6b</b></td>
+              <td><b>9.7</b></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><b>Claude 3 Haiku</b></td>
+              <td><b>9.2</b></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><b>LLaVA-1.5 13b</b></td>
+              <td><b>8.9</b></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><b>LLaVA-1.5 7b</b></td>
+              <td><b>8.5</b></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><b>TransCore-M</b></td>
+              <td><b>8.2</b></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><b>GPT-4 Turbo</b></td>
+              <td><b>7.5</b></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><b>Yi-VL-34b</b></td>
+              <td><b>7.5</b></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><b>CogVLM-Chat</b></td>
+              <td><b>10.5</b></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><b>OmniLMM-3b</b></td>
+              <td><b>6.2</b></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><b>Qwen-VL-Chat</b></td>
+              <td><b>4.6</b></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><b>GPT-4o mini</b></td>
+              <td><b>4.0</b></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><b>Reka Core</b></td>
+              <td><b>1.3</b></td>
+            </tr>
+          </table>
+
+          <p class="mt-3">🎉 To add your GRAB results, please contact
+            <a href="mailto:jdr53@cam.ac.uk">this email</a>.
+          </p>
+        </div>
+
+        <!-- TAB: GRAB-lite -->
         <div id="tab-lite" class="is-hidden" role="tabpanel" aria-labelledby="leaderboard-lite">
           <table class="js-sort-table" id="results-lite">
             <tr>
@@ -480,37 +691,70 @@
             </tr>
 
             <tr>
-              <td>1</td>
-              <td><b class="best-score-text">GPT-5 🥇</b></td>
+              <td></td>
+              <td>Gemini 3 Pro</td>
+              <td>64.0</td>
+              <td>54.0</td>
+              <td>41.0</td>
+              <td>61.0</td>
+              <td>47.0</td>
+              <td>53.4</td>
+            </tr>
+
+            <tr>
+              <td></td>
+              <td>Gemini 3 Flash</td>
+              <td>68.0</td>
+              <td>60.0</td>
+              <td>37.0</td>
+              <td>68.0</td>
+              <td>58.0</td>
+              <td>58.2</td>
+            </tr>
+
+            <tr>
+              <td></td>
+              <td>GPT-5.2</td>
+              <td>63.0</td>
+              <td>59.0</td>
+              <td>49.0</td>
+              <td>76.0</td>
+              <td>48.0</td>
+              <td>59.0</td>
+            </tr>
+
+            <tr>
+              <td></td>
+              <td>GPT-5</td>
               <td>59.0</td>
               <td>34.0</td>
               <td>33.0</td>
               <td>63.0</td>
               <td>42.0</td>
-              <td><b class="best-score-text">46.2</b></td>
+              <td>46.2</td>
             </tr>
             <tr>
-              <td>2</td>
-              <td><b class="best-score-text">Gemini 2.5 Pro 🥈</b></td>
+              <td></td>
+              <td>Gemini 2.5 Pro</td>
               <td>54.0</td>
               <td>43.0</td>
               <td>31.0</td>
               <td>55.0</td>
               <td>38.0</td>
-              <td><b class="best-score-text">44.2</b></td>
+              <td>44.2</td>
             </tr>
             <tr>
-              <td>3</td>
-              <td><b class="best-score-text">GPT-5 mini 🥉</b></td>
+              <td></td>
+              <td>GPT-5 mini</td>
               <td>55.0</td>
               <td>40.0</td>
               <td>32.0</td>
               <td>56.0</td>
               <td>33.0</td>
-              <td><b class="best-score-text">43.2</b></td>
+              <td>43.2</td>
             </tr>
             <tr>
-              <td>4</td>
+              <td></td>
               <td><b>Claude Sonnet 4.5</b></td>
               <td>47.0</td>
               <td>34.0</td>
@@ -520,7 +764,7 @@
               <td><b>39.4</b></td>
             </tr>
             <tr>
-              <td>5</td>
+              <td></td>
               <td><b>Claude Sonnet 4</b></td>
               <td>37.0</td>
               <td>31.0</td>
@@ -530,7 +774,7 @@
               <td><b>30.4</b></td>
             </tr>
             <tr>
-              <td>6</td>
+              <td></td>
               <td><b>GPT-5 nano</b></td>
               <td>36.0</td>
               <td>34.0</td>
@@ -540,7 +784,7 @@
               <td><b>30.2</b></td>
             </tr>
             <tr>
-              <td>7</td>
+              <td></td>
               <td><b>Gemini 2.0 Flash</b></td>
               <td>41.0</td>
               <td>25.0</td>
@@ -550,7 +794,7 @@
               <td><b>29.8</b></td>
             </tr>
             <tr>
-              <td>8</td>
+              <td></td>
               <td><b>Gemini 2.5 Flash</b></td>
               <td>34.0</td>
               <td>27.0</td>
@@ -560,7 +804,7 @@
               <td><b>28.4</b></td>
             </tr>
             <tr>
-              <td>9</td>
+              <td></td>
               <td><b>GPT-4.1</b></td>
               <td>31.0</td>
               <td>21.0</td>
@@ -570,7 +814,7 @@
               <td><b>27.0</b></td>
             </tr>
             <tr>
-              <td>10</td>
+              <td></td>
               <td><b>o1</b></td>
               <td>27.0</td>
               <td>15.0</td>
@@ -580,7 +824,7 @@
               <td><b>24.2</b></td>
             </tr>
             <tr>
-              <td>11</td>
+              <td></td>
               <td><b>Grok 4</b></td>
               <td>23.0</td>
               <td>15.0</td>
@@ -590,7 +834,7 @@
               <td><b>21.6</b></td>
             </tr>
             <tr>
-              <td>12</td>
+              <td></td>
               <td><b>Claude 3.5 Sonnet</b></td>
               <td>39.0</td>
               <td>15.0</td>
@@ -600,7 +844,7 @@
               <td><b>19.6</b></td>
             </tr>
             <tr>
-              <td>13</td>
+              <td></td>
               <td><b>Claude 3.7 Sonnet</b></td>
               <td>36.0</td>
               <td>13.0</td>
@@ -610,7 +854,7 @@
               <td><b>16.6</b></td>
             </tr>
             <tr>
-              <td>14</td>
+              <td></td>
               <td><b>Gemini 1.5 Pro</b></td>
               <td>23.0</td>
               <td>10.0</td>
@@ -620,7 +864,7 @@
               <td><b>15.8</b></td>
             </tr>
             <tr>
-              <td>15</td>
+              <td></td>
               <td><b>GPT-4o</b></td>
               <td>21.0</td>
               <td>7.0</td>
@@ -630,7 +874,7 @@
               <td><b>12.6</b></td>
             </tr>
             <tr>
-              <td>16</td>
+              <td></td>
               <td><b>Gemini 2.5 Flash Lite</b></td>
               <td>18.0</td>
               <td>5.0</td>
@@ -640,7 +884,7 @@
               <td><b>12.4</b></td>
             </tr>
             <tr>
-              <td>17</td>
+              <td></td>
               <td><b>Gemini 2.0 Flash Lite</b></td>
               <td>14.0</td>
               <td>13.0</td>
@@ -661,43 +905,201 @@
   </div>
 </section>
 
-<!-- Tabs behavior -->
+<!-- Tabs behavior with arrow navigation -->
 <script>
   (function() {
     const tabs = document.querySelectorAll('#lb-tabs a');
     const tabGrab = document.getElementById('tab-grab');
+    const tabReal = document.getElementById('tab-real');
     const tabLite = document.getElementById('tab-lite');
+    const prevBtn = document.getElementById('prev-leaderboard');
+    const nextBtn = document.getElementById('next-leaderboard');
+    
+    const leaderboards = ['#leaderboard', '#leaderboard-real', '#leaderboard-lite'];
+    let currentIndex = 0;
 
-    function setActive(isLite) {
+    function setActive(hash) {
+      // Determine which tab based on hash
+      const isGrab = (hash === '#leaderboard' || hash === '');
+      const isReal = (hash === '#leaderboard-real');
+      const isLite = (hash === '#leaderboard-lite');
+      
+      // Update current index
+      if (isGrab) currentIndex = 0;
+      else if (isReal) currentIndex = 1;
+      else if (isLite) currentIndex = 2;
+
       // Panels
-      tabGrab.classList.toggle('is-hidden', isLite);
+      tabGrab.classList.toggle('is-hidden', !isGrab);
+      tabReal.classList.toggle('is-hidden', !isReal);
       tabLite.classList.toggle('is-hidden', !isLite);
 
       // Tabs
       const li = document.querySelectorAll('#lb-tabs li');
-      li[0].classList.toggle('is-active', !isLite);
-      li[1].classList.toggle('is-active', isLite);
+      li[0].classList.toggle('is-active', isGrab);
+      li[1].classList.toggle('is-active', isReal);
+      li[2].classList.toggle('is-active', isLite);
 
       // ARIA
-      tabs[0].setAttribute('aria-selected', String(!isLite));
-      tabs[1].setAttribute('aria-selected', String(isLite));
+      tabs[0].setAttribute('aria-selected', String(isGrab));
+      tabs[1].setAttribute('aria-selected', String(isReal));
+      tabs[2].setAttribute('aria-selected', String(isLite));
     }
 
     function syncFromHash() {
-      const isLite = (location.hash === '#leaderboard-lite');
-      setActive(isLite);
+      setActive(location.hash);
+    }
+
+    function navigate(direction) {
+      currentIndex = (currentIndex + direction + leaderboards.length) % leaderboards.length;
+      location.hash = leaderboards[currentIndex];
     }
 
     tabs.forEach(a => {
       a.addEventListener('click', () => {
-        // Let the anchor update the hash, then sync
         requestAnimationFrame(syncFromHash);
       });
     });
 
+    prevBtn.addEventListener('click', () => navigate(-1));
+    nextBtn.addEventListener('click', () => navigate(1));
+
     window.addEventListener('hashchange', syncFromHash);
-    // Initial (supports deep-linking to #leaderboard-lite)
+    // Initial (supports deep-linking)
     syncFromHash();
+  })();
+
+  // Auto-generate ranks, medals, and styling for all leaderboard tables
+  // Ranks are fixed based on Overall (GRAB, GRAB-lite) or Real (GRAB-real) and persist when sorting by other columns
+  (function() {
+    const medals = ['🥇', '🥈', '🥉'];
+    
+    // Column indices for ranking (0-based): 
+    // GRAB: Overall is column 6, GRAB-real: Real is column 2, GRAB-lite: Overall is column 7
+    const rankColumns = {
+      'results': 6,       // GRAB - rank by Overall
+      'results-real': 2,  // GRAB-real - rank by Real
+      'results-lite': 7   // GRAB-lite - rank by Overall
+    };
+    
+    function isHeaderRow(row) {
+      // Header row has cells with js-sort-number class
+      return row.cells[0] && row.cells[0].classList.contains('js-sort-number');
+    }
+    
+    function initializeRanks(tableId) {
+      const table = document.getElementById(tableId);
+      if (!table) return;
+      
+      const rankColIndex = rankColumns[tableId];
+      
+      // Get all rows and separate header from data rows
+      const allRows = Array.from(table.rows);
+      const headerRow = allRows.find(row => isHeaderRow(row));
+      const dataRows = allRows.filter(row => !isHeaderRow(row));
+      
+      // Separate ranked and unranked rows
+      const rankedRows = [];
+      const unrankedRows = [];
+      
+      dataRows.forEach(row => {
+        const rankCell = row.cells[rankColIndex];
+        const value = rankCell ? rankCell.textContent.trim() : '';
+        if (value === '—' || value === '-' || value === '') {
+          unrankedRows.push({ row: row, rank: null });
+        } else {
+          rankedRows.push({ row: row, value: parseFloat(value) || 0 });
+        }
+      });
+      
+      // Sort by the ranking column (descending - higher is better)
+      rankedRows.sort((a, b) => b.value - a.value);
+      
+      // Reorder rows: header first, then ranked, then unranked
+      const tbody = table.tBodies[0] || table;
+      if (headerRow) tbody.appendChild(headerRow);
+      rankedRows.forEach(item => tbody.appendChild(item.row));
+      unrankedRows.forEach(item => tbody.appendChild(item.row));
+      
+      // Now move header to the top by inserting before first child
+      if (headerRow && tbody.firstChild !== headerRow) {
+        tbody.insertBefore(headerRow, tbody.firstChild);
+      }
+      
+      // Assign fixed ranks and store them as data attributes
+      let rank = 1;
+      rankedRows.forEach(item => {
+        item.row.dataset.fixedRank = rank;
+        rank++;
+      });
+      unrankedRows.forEach(item => {
+        item.row.dataset.fixedRank = '—';
+      });
+      
+      // Apply styling based on fixed ranks
+      applyRankStyling(tableId);
+    }
+    
+    function applyRankStyling(tableId) {
+      const table = document.getElementById(tableId);
+      if (!table) return;
+      
+      // Get all data rows (skip header row)
+      const allRows = Array.from(table.rows);
+      const dataRows = allRows.filter(row => !isHeaderRow(row));
+      
+      dataRows.forEach(row => {
+        const firstCell = row.cells[0];
+        const modelCell = row.cells[1];
+        const lastCell = row.cells[row.cells.length - 1];
+        
+        if (!firstCell) return;
+        
+        const fixedRank = row.dataset.fixedRank;
+        const rankNum = parseInt(fixedRank);
+        
+        // Set rank in first cell
+        firstCell.textContent = fixedRank;
+        
+        // Get model name (strip existing medals, bold tags, and formatting)
+        let modelName = modelCell.textContent.replace(/[🥇🥈🥉]/g, '').trim();
+        let lastValue = lastCell.textContent.replace(/[🥇🥈🥉]/g, '').trim();
+        
+        // Apply styling based on fixed rank
+        if (!isNaN(rankNum) && rankNum <= 3) {
+          // Top 3: add medal, best-score-text class, and bold
+          modelCell.innerHTML = '<b class="best-score-text">' + modelName + ' ' + medals[rankNum - 1] + '</b>';
+          lastCell.innerHTML = '<b class="best-score-text">' + lastValue + '</b>';
+        } else if (!isNaN(rankNum)) {
+          // Other ranked: just bold
+          modelCell.innerHTML = '<b>' + modelName + '</b>';
+          lastCell.innerHTML = '<b>' + lastValue + '</b>';
+        } else {
+          // Unranked
+          modelCell.innerHTML = '<b>' + modelName + '</b>';
+          lastCell.innerHTML = '<b>' + lastValue + '</b>';
+        }
+      });
+    }
+    
+    // Initialize ranks once on page load
+    initializeRanks('results');
+    initializeRanks('results-real');
+    initializeRanks('results-lite');
+    
+    // Re-apply styling after user clicks column headers to sort (ranks stay fixed)
+    document.addEventListener('click', function(e) {
+      const cell = e.target.closest('td.js-sort-number, th');
+      if (!cell) return;
+      
+      const table = cell.closest('table.js-sort-table');
+      if (!table) return;
+      
+      // Give sort-table.js time to sort, then re-apply styling (ranks are fixed in data attributes)
+      setTimeout(function() {
+        applyRankStyling(table.id);
+      }, 50);
+    });
   })();
 </script>
 
@@ -708,7 +1110,7 @@
   <div class="hero-body has-text-centered">
   <h1 class="title is-1 grab">
     <img src="static/images/grab-logo.png" style="width:1em;vertical-align: middle" alt="Logo"/>
-    <span class="grab" style="vertical-align: middle">GRAB and GRAB-Lite Datasets</span>
+    <span class="grab" style="vertical-align: middle">GRAB, GRAB-real and GRAB-lite datasets</span>
   </h1>
   </div>
 </section>
@@ -719,17 +1121,37 @@
       <!-- <div class="column is-full-width has-text-centered"> -->
         <div class="column is-four-fifths">
         <div class="content has-text-justified">
+          
+          <!-- General Introduction -->
           <p>
-            GRAB consists of <b>3284 questions</b> centered around high-quality synthetic graphs. There are five key tasks in GRAB, which include questions covering 23 different graphs properties.
-            <ul>
-              <li><b>Properties</b> focuses on the analysis of features of individual functions and series</li>
-              <li><b>Functions</b> requires computing the mean of properties across multiple functions</li>
-              <li><b>Series</b> requires computing the mean of properties across multiple series</li>
-              <li><b>Transforms</b> involves determining the properties of a function after it has undergone a series of transforms</li>
-              <li><b>Real</b> involves determining the properties of functions and series on real graphs drawn on whiteboards or paper or on synthetic graphs embedded in various computing environments or with random noise added</li>
-            </ul> 
-            </p>
-          <div id="results-carousel" class="carousel results-carousel">
+            The GRAB benchmark suite evaluates the graph analysis capabilities of large multimodal models through questions that mirror tasks <b>human analysts</b> typically perform when interpreting figures. These tasks include estimating means, intercepts, correlations of functions and data series, and performing transforms. The core task categories are:
+          </p>
+          <ul>
+            <li><b>Properties</b> focuses on the analysis of features of individual functions and series</li>
+            <li><b>Functions</b> requires computing the mean of properties across multiple functions</li>
+            <li><b>Series</b> requires computing the mean of properties across multiple series</li>
+            <li><b>Transforms</b> involves determining the properties of a function after it has undergone a series of transforms</li>
+          </ul>
+
+          <!-- GRAB -->
+          <h3 class="title is-4" style="margin-top: 2rem;"><b style="color:rgb(241, 140, 0)">GRAB</b></h3>
+          <p>
+            The main benchmark consisting of <b>2,170 questions</b> centered around high-quality synthetic graphs, spanning 23 different graph properties.
+          </p>
+
+          <!-- GRAB-real -->
+          <h3 class="title is-4" style="margin-top: 2rem;"><b style="color:rgb(241, 140, 0)">GRAB-real</b></h3>
+          <p>
+            A <b>1,114-question</b> set featuring more realistic figures organised into 4 sub-tasks: paper sketches, whiteboard sketches, figures embedded in computer environments, and figures with added noise.
+          </p>
+
+          <!-- GRAB-lite -->
+          <h3 class="title is-4" style="margin-top: 2rem;"><b style="color:rgb(241, 140, 0)">GRAB-lite</b></h3>
+          <p>
+            A lightweight, task-balanced <b>500-question</b> subset combining questions from both GRAB and GRAB-real, with 100 questions from each of the five task categories (Properties, Functions, Series, Transforms, and Real).
+          </p>
+
+          <div id="results-carousel" class="carousel results-carousel" style="margin-top: 2rem;">
             <div class="box m-5">
               <div class="content has-text-centered">
                 <img src="static/images/task_overview_real.png" alt="GRAB examples"/>
@@ -785,7 +1207,7 @@
   <div class="box m-5">
     <div class="content has-text-centered">
       <img src="static/images/evaluator_scores_bar.png" alt="evaluator" width="100%"/>
-      <p>Minor changes to evaluated accuracy are observed when an LLMs is used to parse the exact answer from the LMM output, suggesting the evaluated LMMs are good instruction followers.</p>
+      <p>Minor changes to evaluated accuracy are observed when a LLMs is used to parse the exact answer from the LMM output, suggesting the evaluated LMMs are good instruction followers.</p>
     </div>
   </div>
   <div class="box m-5">
@@ -803,12 +1225,13 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title is-3 has-text-centered">BibTeX</h2>
-    <pre><code>@article{roberts2024grab,
-      title        = {GRAB: A Challenging GRaph Analysis Benchmark for Large Multimodal Models},
-      author       = {Jonathan Roberts, Kai Han and Samuel Albanie},
-      year         = {2024},
-      journal      = {arXiv preprint arXiv:2408.11817}
-    }</code></pre>
+    <pre><code>@inproceedings{roberts2025grab,
+  title={GRAB: A challenging graph analysis benchmark for large multimodal models},
+  author={Roberts, Jonathan and Han, Kai and Albanie, Samuel},
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  pages={1644--1654},
+  year={2025}
+}</code></pre>
   </div>
 </section>
 
